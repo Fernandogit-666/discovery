@@ -1,0 +1,12 @@
+import requests 
+
+
+site = input('Site: ')
+wordlist = input ('wordlist: ')
+
+arquivo = open(wordlist)
+
+
+for d in arquivo.readline():
+        requisicao = requests.get(site+"/"+d.replace('\n',''))
+        print(requisicao.url+"[=>]"+str(requisicao.status_code))
